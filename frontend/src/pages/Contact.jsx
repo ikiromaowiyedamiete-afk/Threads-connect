@@ -1,16 +1,6 @@
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
-
 function Contact() {
-
-    
-
     return (
- 
-  
-  <div className="min-h-screen px-6 py-16 bg-white"> 
-  
-  <Navbar /> 
+        <div className="min-h-screen px-6 py-16 bg-white">
             <div className="max-w-6xl mx-auto">
 
                 {/* Heading */}
@@ -74,17 +64,9 @@ function Contact() {
                         </div>
                     </div>
                 </div>
-            </div>   
-            
-            <Footer />
-        </div> 
-        
-     
+            </div>
+        </div>
     );
-
-   
 }
-
-
 
 export default Contact;

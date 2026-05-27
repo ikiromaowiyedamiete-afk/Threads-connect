@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
 
 function FAQ() {
   const faqs = [
@@ -39,7 +37,6 @@ function FAQ() {
 
   return (
     <div className="min-h-screen bg-white px-6 py-16">
-        <Navbar />
       <div className="max-w-4xl mx-auto">
 
         <div className="text-center mb-12">
@@ -82,7 +79,6 @@ function FAQ() {
 
         </div>
       </div>
-        <Footer />  
     </div>
   );
 }

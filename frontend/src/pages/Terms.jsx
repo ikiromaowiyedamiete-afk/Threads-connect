@@ -1,10 +1,6 @@
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
-
 function Terms() {
   return (
     <div className="min-h-screen bg-white px-6 py-16">
-        <Navbar />
       <div className="max-w-4xl mx-auto">
 
         {/* Header */}
@@ -81,7 +77,6 @@ function Terms() {
         </div>
 
       </div>
-        <Footer />
     </div>
   );
 }
