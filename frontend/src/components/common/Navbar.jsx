@@ -16,15 +16,12 @@ function Navbar() {
 
       <ul className="flex gap-6 mt-3">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" className="hover:text-amber-700 transition-colors duration-300">Home</Link>
         </li>
 
-        <li>
-          <Link to="/tailors">Tailors</Link>
-        </li>
 
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about" className="hover:text-amber-700 transition-colors duration-300">About</Link>
         </li>
       </ul>
 
