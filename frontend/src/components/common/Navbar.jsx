@@ -23,6 +23,18 @@ function Navbar() {
         <li>
           <Link to="/about" className="hover:text-amber-700 transition-colors duration-300">About</Link>
         </li>
+
+        <li>
+          <Link to="/contact" className="hover:text-amber-700 transition-colors duration-300">Contact</Link>
+        </li>
+
+        <li>
+          <Link to="/faq" className="hover:text-amber-700 transition-colors duration-300">FAQ</Link>
+        </li>
+
+        <li>
+          <Link to="/terms" className="hover:text-amber-700 transition-colors duration-300">Terms & Services</Link>
+        </li>
       </ul>
 
     </nav>
