@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <nav className="bg-white px-6 py-4 shadow">
 
-      {/* Brand row */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-amber-700">
           ThreadsConnect
@@ -13,11 +14,18 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Links row (UNDER brand, SIDE BY SIDE) */}
-      <ul className="flex gap-6 mt-3 text-sm md:text-base">
-        <li className="cursor-pointer hover:text-amber-700">Home</li>
-        <li className="cursor-pointer hover:text-amber-700">Tailors</li>
-        <li className="cursor-pointer hover:text-amber-700">About</li>
+      <ul className="flex gap-6 mt-3">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+
+        <li>
+          <Link to="/tailors">Tailors</Link>
+        </li>
+
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
 
     </nav>
