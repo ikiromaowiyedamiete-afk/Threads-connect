@@ -7,6 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-
-  base: "/",
+  base: "/Threads-connect/",
 });
