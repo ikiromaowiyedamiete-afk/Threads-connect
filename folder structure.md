@@ -20,10 +20,18 @@ Threads-connect/
 
 
 
-✅ Authentication
-✅ Home page
-✅ Tailor listing page
-✅ Tailor profile page
-✅ Upload design image
-✅ Place order
-✅ Dashboard for tailors 
+backend/
+│
+├── app/
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   ├── services/
+│   ├── middleware/
+│   ├── utils/
+│   └── uploads/
+│
+├── migrations/
+├── venv/
+├── run.py
+└── requirements.txt

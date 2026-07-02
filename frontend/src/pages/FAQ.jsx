@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BackToHomeButton from "../components/common/BackToHomeButton";
 
 function FAQ() {
   const faqs = [
@@ -79,6 +80,7 @@ function FAQ() {
 
         </div>
       </div>
+      <BackToHomeButton />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import BackToHomeButton from "../components/common/BackToHomeButton";
+
 function Contact() {
     return (
         <div className="min-h-screen px-6 py-16 bg-white">
@@ -65,7 +67,10 @@ function Contact() {
                     </div>
                 </div>
             </div>
+            <BackToHomeButton />
         </div>
+
+        
     );
 }
 

@@ -1,3 +1,4 @@
+import BackToHomeButton from "../components/common/BackToHomeButton";
 function Terms() {
   return (
     <div className="min-h-screen bg-white px-6 py-16">
@@ -77,6 +78,7 @@ function Terms() {
         </div>
 
       </div>
+      <BackToHomeButton />
     </div>
   );
 }
