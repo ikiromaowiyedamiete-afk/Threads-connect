@@ -177,3 +177,8 @@ SIMPLE_JWT = {
 # CORS SETTINGS (React frontend)
 # =========================
 CORS_ALLOW_ALL_ORIGINS = True
+
+from pathlib import Path
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
