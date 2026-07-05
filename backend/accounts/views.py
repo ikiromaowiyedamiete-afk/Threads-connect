@@ -4,7 +4,10 @@ from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from rest_framework import generics
 
+from .models import User
+from .serializers import RegisterSerializer
 
 # -------------------------
 # LOGIN VIEW
@@ -30,7 +33,11 @@ class LoginView(APIView):
             "access": str(refresh.access_token),
             "refresh": str(refresh),
         })
+class RegisterView(generics.CreateAPIView):
 
+    queryset = User.objects.all()
+
+    serializer_class = RegisterSerializer
 
 # -------------------------
 # REGISTER VIEW

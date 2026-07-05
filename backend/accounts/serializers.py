@@ -1,19 +1,36 @@
 from rest_framework import serializers
-from django.contrib.auth import authenticate
+
+from .models import User
+from customers.models import Customer
+from tailors.models import Provider
 
 
-class LoginSerializer(serializers.Serializer):
-    email = serializers.EmailField()
+class RegisterSerializer(serializers.ModelSerializer):
+
     password = serializers.CharField(write_only=True)
 
-    def validate(self, attrs):
-        email = attrs.get("email")
-        password = attrs.get("password")
+    class Meta:
+        model = User
+        fields = [
+            "email",
+            "username",
+            "password",
+            "role"
+        ]
 
-        user = authenticate(username=email, password=password)
+    def create(self, validated_data):
 
-        if not user:
-            raise serializers.ValidationError("Invalid email or password")
+        password = validated_data.pop("password")
 
-        attrs["user"] = user
-        return attrs
+        user = User.objects.create_user(
+            password=password,
+            **validated_data
+        )
+
+        if user.role == "customer":
+            Customer.objects.create(user=user)
+
+        elif user.role == "provider":
+            Provider.objects.create(user=user)
+
+        return user

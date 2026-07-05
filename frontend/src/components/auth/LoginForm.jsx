@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../services/authServices";
 
@@ -7,6 +8,8 @@ import RememberMe from "./RememberMe";
 import AuthButton from "./AuthButton";
 
 export default function LoginForm() {
+  const navigate = useNavigate(); // ✅ FIX ADDED HERE
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -24,18 +27,22 @@ export default function LoginForm() {
       const data = await loginUser(email, password);
 
       console.log("Server response:", data);
-if (data.access) {
-  localStorage.setItem("access", data.access);
-  localStorage.setItem("refresh", data.refresh);
 
-  alert("Login Successful");
+      // ✅ SUCCESS CASE
+      if (data.access) {
+        localStorage.setItem("access", data.access);
+        localStorage.setItem("refresh", data.refresh);
 
-  navigate("/"); // 👈 AUTO REDIRECT TO HOME
-  return;
-}
+        alert("Login Successful");
 
+        navigate("/"); // 👈 AUTO REDIRECT TO HOME
+        return;
+      }
+
+      // ❌ FAILURE CASE
       console.log("Login failed:", data);
       setError(data.detail || data.message || "Login failed");
+
     } catch (err) {
       console.error("Login Error:", err);
       setError("Something went wrong. Please try again.");
