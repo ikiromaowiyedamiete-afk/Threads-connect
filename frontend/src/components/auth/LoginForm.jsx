@@ -8,7 +8,7 @@ import RememberMe from "./RememberMe";
 import AuthButton from "./AuthButton";
 
 export default function LoginForm() {
-  const navigate = useNavigate(); // ✅ FIX ADDED HERE
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,12 +30,18 @@ export default function LoginForm() {
 
       // ✅ SUCCESS CASE
       if (data.access) {
+        // Save JWT tokens
         localStorage.setItem("access", data.access);
         localStorage.setItem("refresh", data.refresh);
 
+        // Save logged-in user information
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        console.log("Logged in user:", data.user);
+
         alert("Login Successful");
 
-        navigate("/"); // 👈 AUTO REDIRECT TO HOME
+        navigate("/"); // Redirect to Home
         return;
       }
 

@@ -1,13 +1,66 @@
-After confirming the server works, the usual next order is:
+⏳ Next Major Phase
 
-Create a config.py file
-Connect your database (SQLite or PostgreSQL)
-Create models:
-Users
-Tailors
-Customer profiles
-Orders
-Create API routes
-Connect React frontend to the Flask API
+Now we move from authentication to building the actual marketplace.
 
-For your tailor marketplace, getting the server running first helps isolate problems before adding the database layer.
+Phase 3 — User Profiles
+
+We'll build two different experiences based on the user's role.
+
+Customer
+Customer Dashboard
+Profile
+Edit Profile
+Browse service providers
+Search
+Book a provider
+Track orders
+Reviews
+Messages
+Service Provider
+Provider Dashboard
+Public Profile
+Upload profile picture
+Portfolio/gallery
+Services offered
+Pricing
+Availability
+Orders received
+Earnings (if you add payments later)
+Phase 4 — Marketplace
+Search providers
+Filter by category
+Filter by location
+Provider cards
+Provider profile page
+Book service
+Reviews
+Ratings
+Phase 5 — Orders
+Create booking
+Accept booking
+Reject booking
+Complete booking
+Booking history
+Order status
+Phase 6 — Messaging
+Customer ↔ Provider chat
+Real-time messaging (or polling initially)
+Conversation list
+Message history
+Phase 7 — Reviews
+Leave review
+Star ratings
+Display average rating
+Provider reviews page
+Phase 8 — Notifications
+New booking
+New message
+Booking accepted/rejected
+Review received
+Phase 9 — Deployment & Production
+Custom domain (optional)
+HTTPS
+Production environment variables
+PostgreSQL (recommended for production)
+Media file storage (e.g. Cloudinary or another service)
+Performance optimizations

@@ -12,11 +12,13 @@ class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            "email",
+            "id",
             "username",
+            "email",
             "password",
-            "role"
+            "role",
         ]
+        read_only_fields = ["id"]
 
     def create(self, validated_data):
 
@@ -27,10 +29,10 @@ class RegisterSerializer(serializers.ModelSerializer):
             **validated_data
         )
 
-        if user.role == "customer":
+        if user.role == User.CUSTOMER:
             Customer.objects.create(user=user)
 
-        elif user.role == "provider":
+        elif user.role == User.PROVIDER:
             Provider.objects.create(user=user)
 
         return user
