@@ -1,17 +1,21 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 
-// Public Pages
+// ================= PUBLIC PAGES =================
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Terms from "./pages/Terms";
 
-// Authentication Pages
+// ================= AUTH PAGES =================
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
-// Protected Route
+// ================= DASHBOARDS =================
+import CustomerDashboard from "./pages/customer/CustomerDashboard";
+import ProviderDashboard from "./pages/provider/ProviderDashboard";
+
+// ================= PROTECTED ROUTE =================
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 function App() {
@@ -30,20 +34,25 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* ================= PROTECTED ROUTES ================= */}
-
-        {/*
-        Example:
-
+        {/* ================= CUSTOMER DASHBOARD ================= */}
         <Route
-          path="/dashboard"
+          path="/customer/dashboard"
           element={
-            <ProtectedRoute>
-              <Dashboard />
+            <ProtectedRoute allowedRole="customer">
+              <CustomerDashboard />
             </ProtectedRoute>
           }
         />
-        */}
+
+        {/* ================= PROVIDER DASHBOARD ================= */}
+        <Route
+          path="/provider/dashboard"
+          element={
+            <ProtectedRoute allowedRole="provider">
+              <ProviderDashboard />
+            </ProtectedRoute>
+          }
+        />
 
       </Routes>
     </HashRouter>
