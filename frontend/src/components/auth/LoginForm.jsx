@@ -21,31 +21,41 @@ export default function LoginForm() {
     console.log("========== LOGIN START ==========");
     console.log("Login clicked");
     console.log("Email:", email);
-    console.log("Password:", password);
 
     try {
       const data = await loginUser(email, password);
 
       console.log("Server response:", data);
 
-      // ✅ SUCCESS CASE
+      // ✅ SUCCESS
       if (data.access) {
         // Save JWT tokens
         localStorage.setItem("access", data.access);
         localStorage.setItem("refresh", data.refresh);
 
-        // Save logged-in user information
-        localStorage.setItem("user", JSON.stringify(data.user));
+        // Save logged-in user
+        localStorage.setItem(
+          "user",
+          JSON.stringify(data.user)
+        );
 
         console.log("Logged in user:", data.user);
 
         alert("Login Successful");
 
-        navigate("/"); // Redirect to Home
+        // Redirect based on role
+        if (data.user.role === "customer") {
+          navigate("/customer/dashboard");
+        } else if (data.user.role === "provider") {
+          navigate("/provider/dashboard");
+        } else {
+          navigate("/");
+        }
+
         return;
       }
 
-      // ❌ FAILURE CASE
+      // ❌ FAILURE
       console.log("Login failed:", data);
       setError(data.detail || data.message || "Login failed");
 
