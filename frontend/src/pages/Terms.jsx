@@ -81,6 +81,7 @@ function Terms() {
       <BackToHomeButton />
     </div>
   );
-}gi
+}
+
 
 export default Terms;
