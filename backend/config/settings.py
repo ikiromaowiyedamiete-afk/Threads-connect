@@ -1,6 +1,5 @@
 from pathlib import Path
 from datetime import timedelta
-import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,13 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY
 # =========================
 SECRET_KEY = "threadsconnect-secret-key-change-this"
-DEBUG = os.environ.get("DEBUG") == "True"
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    ".onrender.com",
-]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # =========================
@@ -181,11 +176,7 @@ SIMPLE_JWT = {
 # =========================
 # CORS SETTINGS (React frontend)
 # =========================
-CORS_ALLOW_ALL_ORIGINS = False
-
-CORS_ALLOWED_ORIGINS = [
-    "https://threads-connect-ivory.vercel.app",
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 from pathlib import Path
 
