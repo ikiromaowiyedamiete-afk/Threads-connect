@@ -1,19 +1,39 @@
 import BASE_URL from "./api";
 
 export const loginUser = async (email, password) => {
-  const response = await fetch(`${BASE_URL}/accounts/login/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  });
+  const url = `${BASE_URL}/accounts/login/`;
 
-  return response.json();
+  console.log("LOGIN REQUEST URL:", url);
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    console.log("STATUS CODE:", response.status);
+
+    const data = await response.json();
+
+    console.log("BACKEND DATA:", data);
+
+    return data;
+
+  } catch (error) {
+    console.error("FETCH ERROR:", error);
+    throw error;
+  }
 };
 
+
 export const registerUser = async (userData) => {
-  const response = await fetch("http://127.0.0.1:8000/api/accounts/register/", {
+  const response = await fetch(`${BASE_URL}/accounts/register/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +44,9 @@ export const registerUser = async (userData) => {
   return response.json();
 };
 
+
 export const logoutUser = () => {
   localStorage.removeItem("access");
   localStorage.removeItem("refresh");
+  localStorage.removeItem("user");
 };
