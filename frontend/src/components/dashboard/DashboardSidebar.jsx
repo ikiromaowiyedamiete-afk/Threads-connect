@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 export default function DashboardSidebar({ menuItems }) {
+  const navigate = useNavigate();
 
   return (
     <aside className="w-full md:w-64 bg-white border-r min-h-screen p-5">
-
       {/* Logo */}
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-black">
@@ -10,14 +12,12 @@ export default function DashboardSidebar({ menuItems }) {
         </h2>
       </div>
 
-
       {/* Navigation */}
       <nav className="space-y-3">
-
         {menuItems.map((item, index) => (
-
           <button
             key={index}
+            onClick={() => navigate(item.path)}
             className="
               w-full
               text-left
@@ -30,14 +30,10 @@ export default function DashboardSidebar({ menuItems }) {
               transition
             "
           >
-            {item}
+            {item.label}
           </button>
-
         ))}
-
       </nav>
-
-
     </aside>
   );
 }

@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import User
 from customers.models import Customer
-from tailors.models import Provider
+from tailors.models import TailorProfile
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -33,6 +33,9 @@ class RegisterSerializer(serializers.ModelSerializer):
             Customer.objects.create(user=user)
 
         elif user.role == User.PROVIDER:
-            Provider.objects.create(user=user)
+            TailorProfile.objects.create(
+                user=user,
+                business_name=user.username
+            )
 
         return user

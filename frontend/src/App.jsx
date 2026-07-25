@@ -15,6 +15,8 @@ import Register from "./pages/Register";
 import CustomerDashboard from "./pages/customer/CustomerDashboard";
 import ProviderDashboard from "./pages/provider/ProviderDashboard";
 
+import ProviderProfile from "./pages/provider/ProviderProfile";
+
 // ================= PROTECTED ROUTE =================
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
@@ -29,6 +31,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/provider/profile" element={<ProviderProfile />}/>
 
         {/* ================= AUTH ROUTES ================= */}
         <Route path="/login" element={<Login />} />
