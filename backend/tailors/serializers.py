@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import TailorProfile
 
+
 class TailorProfileSerializer(serializers.ModelSerializer):
 
     username = serializers.CharField(
@@ -12,14 +13,14 @@ class TailorProfileSerializer(serializers.ModelSerializer):
         source="user.email",
         read_only=True
     )
-    
+
     class Meta:
         model = TailorProfile
 
         fields = [
             "id",
             "username",
-            "email"
+            "email",
             "business_name",
             "bio",
             "years_of_experience",
@@ -33,11 +34,11 @@ class TailorProfileSerializer(serializers.ModelSerializer):
             "price_range",
             "available",
             "created_at",
-            "updated_at",   
+            "updated_at",
         ]
 
         read_only_fields = [
             "id",
-            "created_at"
+            "created_at",
             "updated_at",
         ]
